@@ -1,6 +1,8 @@
 <?php
 
 // Load includes.
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/includes/blocks.php';
 require_once __DIR__ . '/includes/agreement.php';
 
 // Disable limit login attempts by Flywheel.
