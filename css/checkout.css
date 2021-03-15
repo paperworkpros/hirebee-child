@@ -1,0 +1,88 @@
+.progtrckr-wrapper {
+	margin-bottom: 35px;
+}
+
+.progtrckr-done,
+.progtrckr-todo {
+	display: inline-block;
+	text-align: center;
+	line-height: 3em;
+}
+
+.progtrckr-done {
+	border-bottom: 4px solid var(--color-primary);
+}
+
+.progtrckr-todo {
+	color: silver;
+	border-bottom: 4px solid silver;
+}
+
+.progtrckr-done:after,
+.progtrckr-todo:after {
+	content: "\00a0\00a0";
+}
+
+.progtrckr-done:before,
+.progtrckr-todo:before {
+	position: relative;
+	bottom: -2.5em;
+	float: left;
+	left: 50%;
+	line-height: 1em;
+}
+
+.progtrckr-done:before {
+	content: "\2713";
+	color: white;
+	background-color: var(--color-primary);
+	height: 1.2em;
+	width: 1.2em;
+	line-height: 1.2em;
+	border: none;
+	border-radius: 1.2em;
+}
+
+.progtrckr-todo:before {
+	content: "\039F";
+	color: silver;
+	background-color: white;
+	font-size: 1.5em;
+	bottom: -1.6em;
+}
+
+[data-progtrckr-steps="2"] li {
+	width: 49%;
+}
+
+[data-progtrckr-steps="3"] li {
+	width: 33%;
+}
+
+[data-progtrckr-steps="4"] li {
+	width: 24%;
+}
+
+[data-progtrckr-steps="5"] li {
+	width: 19%;
+}
+
+[data-progtrckr-steps="6"] li {
+	width: 16%;
+}
+
+[data-progtrckr-steps="7"] li {
+	width: 14%;
+}
+
+[data-progtrckr-steps="8"] li {
+	width: 12%;
+}
+
+[data-progtrckr-steps="9"] li {
+	width: 11%;
+}
+
+[name=post_content] {
+	min-height: 100px;
+}

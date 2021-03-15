@@ -1,0 +1,74 @@
+.gform_wrapper {
+	background: #fff;
+	padding: 1.5em;
+	box-shadow: var(--shadow);
+	border-left: 1px solid var(--color-shadow);
+	border-right: 1px solid var(--color-shadow);
+	border-bottom: 1px solid var(--color-shadow);
+}
+
+input:not([type=submit]),
+textarea {
+	width: 100%;
+	padding: 1.5em;
+	border: 1px solid var(--color-border);
+}
+
+input[type=file] {
+	padding: 2em;
+	border-style: dashed;
+}
+
+label {
+	margin-bottom: 0.5em;
+}
+
+input + label {
+	font-weight: normal;
+	margin-top: 0.5em;
+}
+
+.gform_fields {
+	padding: 0;
+	list-style-type: none;
+}
+
+.gfield_label {
+	margin-top: 0;
+}
+
+.ginput_full {
+	width: 100%;
+}
+
+.gf_clear_complex {
+	display: none;
+}
+
+.gfield_visibility_hidden {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+@media (min-width: 800px) {
+
+	.ginput_container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.name_first,
+	.name_last,
+	.ginput_left,
+	.ginput_right {
+		width: 49%;
+	}
+}
