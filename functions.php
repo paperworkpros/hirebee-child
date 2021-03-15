@@ -3,6 +3,15 @@
 // Load includes.
 require_once __DIR__ . '/includes/agreement.php';
 
+// Disable limit login attempts by Flywheel.
+add_filter( 'login_errors', function ( $errors ) {
+	if ( is_page_template( 'form-login.php' ) && ! is_a( $errors, 'WP_Error' ) ) {
+		$errors = new WP_Error();
+	}
+
+	return $errors;
+} );
+
 // Setup theme.
 add_action( 'init', function () {
 
