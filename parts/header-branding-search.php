@@ -15,7 +15,7 @@
 
 		<form method="get" action="<?php echo esc_url( trailingslashit( home_url() ) ); ?>" class="header-search">
 
-			<?php the_hrb_search_dropdown( [ 'name' => 'drop-search' ] ); ?>
+			<!-- <?php the_hrb_search_dropdown( [ 'name' => 'drop-search' ] ); ?>-->
 
 			<!-- <input type="search" id="search" placeholder="<?php echo esc_attr_x( 'Search', 'placeholder', APP_TD ); ?>" name="ls" class="text search" value="<?php esc_attr( hrb_output_search_query_var( 'ls' ) ); ?>"/>
 
