@@ -92,13 +92,18 @@ button[disabled]:focus,
 .button + .button,
 button + button,
 .button + button,
-button + .button {
-	margin-left: 3em;
+button + .button,
+.wp-block-button + .wp-block-button {
+	margin-left: 1em;
 }
 
 .button-outline {
 	background: transparent;
 	border: 2px solid var(--color-primary);
+}
+
+.wp-block-buttons {
+	display: inline-flex;
 }
 
 input[type="text"],
@@ -305,7 +310,7 @@ fieldset legend {
 
 .hero-section p {
 	max-width: 740px;
-	margin: 2em auto 0;
+	margin: 2em auto;
 }
 
 .hero-section h1 {
