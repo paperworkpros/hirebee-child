@@ -130,7 +130,7 @@ add_action( 'wp', function () {
 add_action( 'wp_enqueue_scripts', function () {
 	global $post;
 
-	if ( ! is_page( 'edit-profile' ) ) {
+	if ( ! is_page( 'edit-profile' ) && ! is_page( 'post-a-project' ) ) {
 		wp_deregister_style( 'dashicons' );
 	}
 
@@ -253,19 +253,3 @@ add_filter( 'register', function ( $link ) {
 		$link
 	);
 }, 10, 1 );
-
-
-add_filter( 'wp_dropdown_cats', function ( $output, $parsed_args ) {
-	if ( isset( $parsed_args['taxonomy'] ) && 'project_category' === $parsed_args['taxonomy'] ) {
-
-		/**
-		 * @var $select DOMDocument
-		 */
-		$select  = get_dom_document( $output );
-		$options = $select->childNodes;
-
-		$output = $select->saveHTML();
-	}
-
-	return $output;
-}, 10, 2 );
