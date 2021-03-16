@@ -253,3 +253,19 @@ add_filter( 'register', function ( $link ) {
 		$link
 	);
 }, 10, 1 );
+
+
+add_filter( 'wp_dropdown_cats', function ( $output, $parsed_args ) {
+	if ( isset( $parsed_args['taxonomy'] ) && 'project_category' === $parsed_args['taxonomy'] ) {
+
+		/**
+		 * @var $select DOMDocument
+		 */
+		$select  = get_dom_document( $output );
+		$options = $select->childNodes;
+
+		$output = $select->saveHTML();
+	}
+
+	return $output;
+}, 10, 2 );
