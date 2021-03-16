@@ -236,4 +236,12 @@ add_filter( 'hrb_profile_base_fields', function ( $fields ) {
 	}
 
 	return $fields;
-}, 11, 1 );
+}, 10, 1 );
+
+add_filter( 'register', function ( $link ) {
+	return str_replace(
+		'button ',
+		'',
+		$link
+	);
+}, 10, 1 );

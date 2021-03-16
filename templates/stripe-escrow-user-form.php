@@ -111,7 +111,8 @@ if ( $account_id ) {
 
 	echo html( 'p', __( 'You have to connect your Stripe account to this platform to be able to receive payments.', 'appthemes-stripe' ) );
 	echo html( 'a', [
-		'href'  => esc_url( '//dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=' . $client_id ),
-		'class' => 'stripe-connect',
+		'href'   => esc_url( '//dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=' . $client_id ),
+		'class'  => 'stripe-connect',
+		'target' => '_blank',
 	], html( 'span', __( 'Connect with Stripe', 'appthemes-stripe' ) ) );
 }
