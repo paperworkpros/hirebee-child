@@ -924,6 +924,13 @@ form li {
 	list-style-type: none;
 }
 
+.form-field,
+.wp-pwd,
+.form-table {
+	width: 100%;
+	border: 0;
+}
+
 .before-footer {
 	display: flex;
 	justify-content: space-between;

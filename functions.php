@@ -130,7 +130,10 @@ add_action( 'wp', function () {
 add_action( 'wp_enqueue_scripts', function () {
 	global $post;
 
-	wp_deregister_style( 'dashicons' );
+	if ( ! is_page( 'edit-profile' ) ) {
+		wp_deregister_style( 'dashicons' );
+	}
+
 	wp_deregister_style( 'wp-block-library' );
 	wp_deregister_style( 'hrb-styles' );
 	wp_deregister_style( 'app-form-progress' );
@@ -218,3 +221,19 @@ add_action( 'init', function () {
 add_filter( 'appthemes_stripe_escrow_user_form', function () {
 	return __DIR__ . '/templates/stripe-escrow-user-form.php';
 } );
+
+// Set minimum hourly rate.
+add_filter( 'hrb_profile_base_fields', function ( $fields ) {
+	foreach ( $fields as $field => $args ) {
+		if ( isset( $args['name'] ) && 'hrb_rate' === $args['name'] ) {
+			$fields[ $field ]['extra'] = [
+				'size'  => 3,
+				'class' => 'short-field',
+				'type'  => 'number',
+				'min'   => 30,
+			];
+		}
+	}
+
+	return $fields;
+}, 11, 1 );
