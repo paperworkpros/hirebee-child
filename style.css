@@ -156,6 +156,7 @@ textarea:focus {
 }
 
 textarea {
+	height: auto;
 	min-height: 6em;
 	line-height: 1.5;
 }
@@ -983,11 +984,51 @@ form li {
 	list-style-type: none;
 }
 
-.form-field,
+.form-field:not(.columns),
 .wp-pwd,
 .form-table {
 	width: 100%;
 	border: 0;
+}
+
+.wp-generate-pw,
+.wp-cancel-pw {
+	display: none !important;
+}
+
+.manage-password ~ h3 {
+	display: block;
+	margin-top: 1.5em;
+}
+
+table.form-table tr {
+	background: transparent;
+}
+
+.form-table th {
+	padding: 1em 0 0;
+	text-align: left;
+	vertical-align: initial;
+	line-height: 1;
+}
+
+.form-table tr td {
+	padding: 0;
+}
+
+.form-table label {
+	margin: 0;
+}
+
+.form-table input {
+	margin-bottom: 0;
+}
+
+.description {
+	display: block;
+	margin: 1em 0;
+	font-style: italic;
+	font-size: smaller;
 }
 
 .login-form .form-field:nth-of-type(4) {
@@ -1026,6 +1067,34 @@ input[name=rememberme] {
 
 .top-widgets {
 	display: none;
+}
+
+.media-manager {
+	display: flex;
+	align-items: center;
+}
+
+.hrb-gravatar a,
+.media-attachment {
+	display: block;
+	height: 3em;
+	width: 3em;
+	border-radius: 5em;
+	border: var(--border);
+	overflow: hidden;
+}
+
+.media-attachment {
+	margin-right: 2em;
+	height: 5em;
+	width: 5em;
+}
+
+.hrb-gravatar img,
+.media-attachment img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 .before-footer {

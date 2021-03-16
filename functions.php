@@ -233,11 +233,19 @@ add_filter( 'hrb_profile_base_fields', function ( $fields ) {
 				'min'   => 30,
 			];
 		}
+
+		if ( isset( $args['name'] ) && 'hrb_currency' === $args['name'] ) {
+			unset( $fields[ $field ] );
+		}
 	}
 
 	return $fields;
 }, 10, 1 );
 
+// Remove all social fields, including public email.
+add_filter( 'hrb_profile_social_fields', '__return_empty_array' );
+
+// Remove button class around link on login page.
 add_filter( 'register', function ( $link ) {
 	return str_replace(
 		'button ',
