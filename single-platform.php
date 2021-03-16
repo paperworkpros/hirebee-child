@@ -52,28 +52,41 @@ $url             = $affiliate ? $affiliate : $website;
 ?>
 
 	<div class="row">
-		<div class="columns">
+		<div class="columns d-flex">
 			<div class="platform-sidebar large-4 columns">
-				<?php the_post_thumbnail( 'medium' ); ?>
-				<p>
-					<?php echo file_get_contents( __DIR__ . '/svg/map-marker.svg' ); ?>
-					<?php echo $address; ?>
-				</p>
-				<p>
-					<?php echo file_get_contents( __DIR__ . '/svg/phone.svg' ); ?>
-					<?php echo $phone; ?>
-				</p>
-				<p>
-					<?php echo file_get_contents( __DIR__ . '/svg/envelope.svg' ); ?>
-					<?php echo $public_email; ?>
-				</p>
-				<p>
-					<?php echo file_get_contents( __DIR__ . '/svg/laptop.svg' ); ?>
-					<a href="<?php echo $url; ?>" target="_blank">
-						<?php echo $website; ?>
-					</a>
-				</p>
-				<a href="#contact" id="contact-button" class="button">Contact <?php the_title(); ?></a>
+				<div class="contact-info">
+					<?php the_post_thumbnail( 'medium' ); ?>
+					<p>
+						<?php echo file_get_contents( __DIR__ . '/svg/map-marker.svg' ); ?>
+						<?php echo $address; ?>
+					</p>
+					<p>
+						<?php echo file_get_contents( __DIR__ . '/svg/phone.svg' ); ?>
+						<?php echo $phone; ?>
+					</p>
+					<p>
+						<?php echo file_get_contents( __DIR__ . '/svg/envelope.svg' ); ?>
+						<?php echo $public_email; ?>
+					</p>
+					<p>
+						<?php echo file_get_contents( __DIR__ . '/svg/laptop.svg' ); ?>
+						<a href="<?php echo $url; ?>" target="_blank">
+							<?php echo $website; ?>
+						</a>
+					</p>
+					<a href="#contact" id="contact-button" class="button">Contact <?php the_title(); ?></a>
+				</div>
+
+				<div class="screenshots">
+					<h6>Images</h6>
+					<br>
+					<?php foreach ( $screenshots as $screenshot ) : ?>
+						<a href="<?php echo wp_get_attachment_image_url( $screenshot, 'large' ); ?>" title="<?php echo wp_get_attachment_caption( $screenshot ); ?>">
+							<?php echo wp_get_attachment_image( $screenshot, 'medium' ); ?>
+						</a>
+					<?php endforeach; ?>
+				</div>
+
 			</div>
 			<div class="platform-content large-8 columns">
 				<h1><?php the_title(); ?></h1>
@@ -107,14 +120,6 @@ $url             = $affiliate ? $affiliate : $website;
 					<?php echo $testimonial; ?>
 					<cite> - <?php echo $author; ?></cite>
 				</blockquote>
-				<h2>Images</h2>
-				<div class="screenshots">
-					<?php foreach ( $screenshots as $screenshot ) : ?>
-						<a href="<?php echo wp_get_attachment_image_url( $screenshot, 'large' ); ?>" title="<?php echo wp_get_attachment_caption( $screenshot ); ?>">
-							<?php echo wp_get_attachment_image( $screenshot, 'medium' ); ?>
-						</a>
-					<?php endforeach; ?>
-				</div>
 				<input id="platform-email" type="hidden" value="<?php echo $email; ?>">
 			</div>
 		</div>
