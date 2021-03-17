@@ -161,6 +161,13 @@ textarea {
 	line-height: 1.5;
 }
 
+select {
+	height: 2.75em;
+	padding: 0 .5em;
+	line-height: 1;
+	color: var(--color-body);
+}
+
 label {
 	margin: 1em 0;
 }
@@ -1095,6 +1102,15 @@ input[name=rememberme] {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
+
+.page-id-22 #primary {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.edit-link {
+	display: none;
 }
 
 .before-footer {

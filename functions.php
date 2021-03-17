@@ -253,3 +253,8 @@ add_filter( 'register', function ( $link ) {
 		$link
 	);
 }, 10, 1 );
+
+// Limit Gravity Forms countries to US only.
+add_filter( 'gform_countries', function () {
+	return [ 'United States' ];
+} );

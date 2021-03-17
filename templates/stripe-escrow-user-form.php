@@ -108,10 +108,11 @@ if ( $account_id ) {
 	] );
 
 	$client_id = \Stripe\Stripe::getClientId();
+	$test_client_id = 'ca_J2fFP4AELOHvFlJSvvld437vRTiHR2aR';
 
 	echo html( 'p', __( 'You have to connect your Stripe account to this platform to be able to receive payments.', 'appthemes-stripe' ) );
 	echo html( 'a', [
-		'href'   => esc_url( '//dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=' . $client_id . '&redirect_uri=' . home_url( '/dashboard/payments/' ) ),
+		'href'   => esc_url( '//dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=' . $test_client_id . '&redirect_uri=' . home_url( '/dashboard/payments/' ) ),
 		'class'  => 'stripe-connect',
 		'target' => '_blank',
 	], html( 'span', __( 'Connect with Stripe', 'appthemes-stripe' ) ) );

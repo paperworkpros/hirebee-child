@@ -35,6 +35,7 @@ input + label {
 
 .gfield_label {
 	margin-top: 0;
+	font-weight: bold;
 }
 
 .ginput_full {
@@ -58,11 +59,69 @@ input + label {
 	word-wrap: normal !important;
 }
 
+.ginput_container_address {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ginput_container_address > span {
+	margin-bottom: 1em;
+}
+
+.gfield {
+	margin-bottom: 2em;
+}
+
+.gfield input,
+.gfield select {
+	margin-bottom: 0;
+}
+
+.ginput_container_consent {
+	align-items: center;
+}
+
+.gfield_consent_label {
+	margin: 0;
+}
+
+.ginput_container_consent > input {
+	width: 1em;
+	margin-right: 0.5em;
+}
+
+select + label {
+	margin-top: 0.5em;
+}
+
+.hidden_label .gfield_label {
+	display: none;
+}
+
+.gfield_required {
+	color: orangered;
+	margin: 0 0.1em;
+}
+
+.address_country {
+	cursor: not-allowed;
+}
+
+.address_country select {
+	pointer-events: none;
+	cursor: not-allowed;
+	background: var(--color-border);
+}
+
 @media (min-width: 800px) {
 
 	.ginput_container {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.ginput_container_consent {
+		justify-content: flex-start;
 	}
 
 	.name_first,
