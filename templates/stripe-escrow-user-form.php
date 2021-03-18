@@ -85,7 +85,6 @@
 	</style>
 <?php
 
-
 if ( $error_msg ) {
 	echo html( 'p', sprintf( __( 'Error: %s', 'appthemes-stripe' ), esc_html( $error_msg ) ) );
 	echo html( 'p', __( 'Click <a href="?">here</a> to restart the OAuth flow.', 'appthemes-stripe' ) );
@@ -102,17 +101,32 @@ if ( $account_id ) {
 		echo html( 'p', __( 'Success! Your Stripe account is disconnected.', 'appthemes-stripe' ) );
 	}
 
-	$url = \Stripe\OAuth::authorizeUrl( [
-		'scope' => 'read_write',
-		'state' => wp_create_nonce( 'connect' ),
-	] );
+	$current_user = get_userdata( get_current_user_id() );
+	$counter      = 1;
+	$url          = "//connect.stripe.com/express/oauth/authorize";
+	$query_vars   = [
+		'redirect_uri'               => home_url( '/dashboard/payments/' ),
+		'client_id'                  => 'ca_J2fFP4AELOHvFlJSvvld437vRTiHR2aR',
+		'state'                      => wp_create_nonce( 'connect' ),
+		'stripe_user[email]'         => $current_user->user_email,
+		'stripe_user[url]'           => $current_user->user_url,
+		'stripe_user[first_name]'    => $current_user->user_firstname,
+		'stripe_user[last_name]'     => $current_user->user_lastname,
+		'stripe_user[country]'       => 'US',
+		'stripe_user[business_type]' => 'individual',
+	];
 
-	$client_id = \Stripe\Stripe::getClientId();
-	$test_client_id = 'ca_J2fFP4AELOHvFlJSvvld437vRTiHR2aR';
+	foreach ( $query_vars as $key => $value ) {
+		if ( $value ) {
+			$url .= ( 1 === $counter ? '?' : '&' ) . "$key=$value";
+		}
+
+		$counter++;
+	}
 
 	echo html( 'p', __( 'You have to connect your Stripe account to this platform to be able to receive payments.', 'appthemes-stripe' ) );
 	echo html( 'a', [
-		'href'   => esc_url( '//dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=' . $test_client_id . '&redirect_uri=' . home_url( '/dashboard/payments/' ) ),
+		'href'   => esc_url( $url ),
 		'class'  => 'stripe-connect',
 		'target' => '_blank',
 	], html( 'span', __( 'Connect with Stripe', 'appthemes-stripe' ) ) );
