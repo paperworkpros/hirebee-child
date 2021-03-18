@@ -258,3 +258,13 @@ add_filter( 'register', function ( $link ) {
 add_filter( 'gform_countries', function () {
 	return [ 'United States' ];
 } );
+
+// Modify sign up link.
+add_filter( 'hrb_user_nav_links', function ( $user_links ) {
+	if ( ! is_user_logged_in() ) {
+		$user_links['register']['name'] = 'Sign Up';
+		$user_links['register']['url']  = home_url( '/sign-up' );
+	}
+
+	return $user_links;
+} );
