@@ -245,7 +245,7 @@ fieldset legend {
 .header-menu {
 	display: flex;
 	align-items: center;
-	margin: 0 1em;
+	margin: 0 1.5em;
 	list-style: none;
 	font-weight: 600;
 	/*text-transform: uppercase;*/
@@ -255,11 +255,15 @@ fieldset legend {
 	--link-color: var(--color-dark);
 }
 
-.menu-item {
+.header-menu + .header-menu {
+	margin-left: 0;
+}
+
+.header-menu li {
 	margin-right: 1.5em;
 }
 
-.menu-item:last-of-type {
+.header-menu li:last-of-type {
 	margin-right: 0;
 }
 
@@ -372,11 +376,19 @@ fieldset legend {
 	text-transform: capitalize;
 }
 
+#notices {
+	max-width: 100%;
+}
+
 .content-area {
-	padding-top: 60px;
+	padding-top: 30px;
 	padding-bottom: 60px;
 	order: 3;
 	width: 100%;
+}
+
+.home .content-area {
+	padding-top: 60px;
 }
 
 .article-header {
@@ -1167,7 +1179,7 @@ input[name=rememberme] {
 	.responsive-menu,
 	.header-search,
 	.header-menu,
-	.menu-item {
+	.header-menu li {
 		width: 100%;
 		flex-wrap: wrap;
 		margin: 1em 0;
