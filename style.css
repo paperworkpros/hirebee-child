@@ -281,7 +281,7 @@ fieldset legend {
 }
 
 .sub-menu {
-	display: none;
+	display: block;
 	margin: 0;
 	list-style: none;
 }
@@ -1183,5 +1183,44 @@ input[name=rememberme] {
 		width: 100%;
 		flex-wrap: wrap;
 		margin: 1em 0;
+	}
+}
+
+@media (min-width: 1000px) {
+
+	.menu-item-has-children {
+		position: relative;
+	}
+
+	.sub-menu {
+		display: none;
+		position: absolute;
+		z-index: 9;
+		margin-left: -1em;
+		padding: 2em 0 0;
+		background: #fff;
+		white-space: nowrap;
+	}
+
+	.sub-menu li {
+		display: block;
+		width: 100%;
+		border-left: var(--border);
+		border-right: var(--border);
+	}
+
+	.sub-menu li:last-of-type {
+		border-bottom: var(--border);
+	}
+
+	.sub-menu a {
+		display: block;
+		padding: 0.5em 1em;
+	}
+
+	.menu-item-has-children:focus-within .sub-menu,
+	.menu-item-has-children a:focus + .sub-menu,
+	.sub-menu.visible {
+		display: block;
 	}
 }

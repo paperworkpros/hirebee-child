@@ -14,8 +14,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	menuToggle.innerText = menuVars.text;
 	navMenu.parentNode.insertBefore( menuToggle, navMenu );
 
-
-
 	const hideShowElements = function() {
 		if ( window.innerWidth < menuVars.breakpoint ) {
 			menuToggle.nextElementSibling.style.display = 'none';

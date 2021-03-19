@@ -36,9 +36,52 @@
 		?>
 
 		<ul id="profile-links" class="header-menu">
-			<?php do_action( 'hrb_before_user_nav_links' ); ?>
-			<?php the_hrb_user_nav_links(); ?>
-			<?php do_action( 'hrb_after_user_nav_links' ); ?>
+
+			<?php if ( ! is_user_logged_in() ) : ?>
+
+				<li class="hrb-login">
+					<a href="<?php echo get_the_hrb_site_login_url(); ?>">Login</a>
+				</li>
+
+				<li class="hrb-register">
+					<a href="<?php echo get_the_hrb_site_registration_url(); ?>">Sign Up</a>
+				</li>
+
+			<?php else: ?>
+
+				<?php $current_user = wp_get_current_user(); ?>
+
+				<li class="hrb-gravatar">
+					<?php the_hrb_user_gravatar( $current_user->ID ); ?>
+				</li>
+
+				<li class="hrb-user menu-item-has-children">
+					<a title="Dashboard" href="/dashboard"><?php echo $current_user->user_firstname . ' ' . $current_user->user_lastname[0]; ?></a>
+
+					<ul class="sub-menu">
+						<li class="hrb-dashboard">
+							<a href="/dashboard">Dashboard</a>
+						</li>
+
+						<li class="hrb-profile">
+							<a href="<?php echo appthemes_get_edit_profile_url(); ?>">Edit Profile</a>
+						</li>
+
+						<li class="hrb-billing">
+							<a href="<?php echo hrb_get_dashboard_url_for() . '/payment/'; ?>">Billing</a>
+						</li>
+
+						<li class="hrb-logout">
+							<a href="<?php echo wp_logout_url(); ?>">Logout</a>
+						</li>
+
+					</ul>
+
+				</li>
+
+			<?php endif; ?>
+
+
 		</ul>
 
 	</div>

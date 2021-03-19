@@ -144,10 +144,17 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
 
 	wp_enqueue_script(
-		get_stylesheet() . '-menus',
-		get_stylesheet_directory_uri() . '/js/menus.js',
+		get_stylesheet() . '-mobile-menu',
+		get_stylesheet_directory_uri() . '/js/mobile-menu.js',
 		[ 'jquery' ],
-		filemtime( get_stylesheet_directory() . '/js/menus.js' )
+		filemtime( get_stylesheet_directory() . '/js/mobile-menu.js' )
+	);
+
+	wp_enqueue_script(
+		get_stylesheet() . '-sub-menu',
+		get_stylesheet_directory_uri() . '/js/sub-menu.js',
+		[ 'jquery' ],
+		filemtime( get_stylesheet_directory() . '/js/sub-menu.js' )
 	);
 
 	wp_enqueue_style(
@@ -257,14 +264,4 @@ add_filter( 'register', function ( $link ) {
 // Limit Gravity Forms countries to US only.
 add_filter( 'gform_countries', function () {
 	return [ 'United States' ];
-} );
-
-// Modify sign up link.
-add_filter( 'hrb_user_nav_links', function ( $user_links ) {
-	if ( ! is_user_logged_in() ) {
-		$user_links['register']['name'] = 'Sign Up';
-		$user_links['register']['url']  = home_url( '/sign-up' );
-	}
-
-	return $user_links;
 } );
