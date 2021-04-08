@@ -1,0 +1,155 @@
+
+.activity .row {
+	margin: 0;
+}
+
+.activity .columns {
+	padding: 0;
+}
+
+.activity .entry {
+	margin: 0;
+	padding: 1em 0;
+	background: #fff;
+	border-bottom: var(--border);
+}
+
+.activity hr {
+	display: none;
+}
+
+.activity .row + .button {
+	margin: 2em auto;
+	display: block;
+	width: 10em;
+}
+
+.i-view:before {
+	content: url(../svg/eye.svg);
+	display: block;
+	font-size: 8px;
+	width: 2em;
+}
+
+.hrb-dashboard .content-area {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.hrb-dashboard .content-area:before,
+.hrb-dashboard .content-area:after {
+	display: none;
+}
+
+.dashboard,
+.hrb-dashboard #sidebar {
+	display: block;
+	background: #fff;
+	padding: 1.5em;
+	border: var(--border);
+	border-top: 0;
+	box-shadow: var(--shadow);
+}
+
+.hrb-dashboard #sidebar {
+	position: sticky;
+	top: 2em;
+	flex: 20%;
+}
+
+.hrb-dashboard #main {
+	flex: calc(80% - 3em);
+}
+
+.hrb-dashboard #main .alert-box {
+	margin-top: 0;
+	margin-bottom: 2em;
+}
+
+.dashboard-filters {
+	display: none;
+}
+
+.sidebar-dashboard {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.sidebar-dashboard > aside {
+	width: 100%;
+	order: 1;
+}
+
+.sidebar-dashboard .user-info-wrap {
+	order: 0;
+}
+
+#sidebar h3 {
+	font-size: 1.1em;
+	font-weight: 500;
+}
+
+.user-info-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#dashboard-side-nav .section-head {
+	display: none;
+}
+
+#sidebar .user-info-wrap h3 {
+	margin-bottom: 0.5em;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.user-meta-wrap {
+	order: -1;
+	width: 100%;
+}
+
+.dashboard-edit-profile {
+	width: 100%;
+}
+
+.user-info-wrap h3 {
+	font-size: 1em;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#sidebar li {
+	list-style-type: none;
+}
+
+#sidebar .notifications {
+	margin: 0;
+}
+
+#sidebar .user-name {
+	display: none;
+}
+
+.dashboard-stats li > span:before {
+	content: ': ';
+	display: inline-block;
+	margin: 0 .6em 0 -.2em;
+}
+
+.add-project span {
+	display: none;
+}
+
+.widget {
+	padding: 20px;
+	background: #fff;
+	border: var(--border);
+	border-radius: var(--border-radius);
+}
+
+.dashboard-links {
+	margin: 0;
+}

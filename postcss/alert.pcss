@@ -1,0 +1,73 @@
+
+#notices {
+	width: 100%;
+	max-width: 100%;
+}
+
+#notices .columns {
+	width: calc(100% - 1.875em);
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.alert-box {
+	background: var(--color-info);
+	border: 1px solid var(--color-primary);
+	color: var(--color-primary);
+	font-weight: 400;
+	margin: 2em auto 0;
+	padding: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.alert-box.success {
+	background: rgba(46, 139, 87, .1);
+	border: 1px solid seagreen;
+	color: seagreen;
+}
+
+.alert-box a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.alert-box .close {
+	color: inherit;
+	opacity: 1;
+	position: relative;
+	line-height: 1;
+	top: auto;
+	right: auto;
+	padding: 0 0 .2em .2em;
+	text-decoration: none;
+}
+
+.errors {
+	margin-left: 1em;
+	margin-bottom: 0;
+}
+
+
+.notifications {
+	width: 100%;
+	margin: 2em 0;
+	border-collapse: collapse;
+}
+
+.notifications tr {
+	background: #fff !important;
+	border-bottom: var(--border);
+}
+
+.notifications th,
+.notifications td {
+	padding: 1em;
+}
+
+.page-template-form-login #notices,
+.page-template-form-password-recovery #notices {
+	max-width: 768px;
+}

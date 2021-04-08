@@ -1,33 +1,11 @@
 <?php
-wp_enqueue_style(
-	'simple-lightbox',
-	get_stylesheet_directory_uri() . '/css/simple-lightbox.css',
-	[],
-	filemtime( __DIR__ . '/css/simple-lightbox.css' )
-);
-
-wp_enqueue_style(
-	'platform-showcase',
-	get_stylesheet_directory_uri() . '/css/platform-showcase.css',
-	[],
-	filemtime( __DIR__ . '/css/platform-showcase.css' )
-);
 
 wp_enqueue_script(
-	'simple-lightbox',
-	get_stylesheet_directory_uri() . '/js/simple-lightbox.js',
+	'lightbox',
+	get_stylesheet_directory_uri() . '/js/lightbox.js',
 	[],
-	filemtime( __DIR__ . '/js/simple-lightbox.js' )
+	filemtime( __DIR__ . '/js/lightbox.js' )
 );
-
-wp_enqueue_script(
-	'platform-showcase',
-	get_stylesheet_directory_uri() . '/js/platform-showcase.js',
-	[ 'simple-lightbox' ],
-	filemtime( __DIR__ . '/js/platform-showcase.js' )
-);
-
-wp_enqueue_style( get_stylesheet() . '-gravity-forms' );
 
 get_header();
 
@@ -77,7 +55,7 @@ $url             = $affiliate ? $affiliate : $website;
 					<a href="#contact" id="contact-button" class="button">Contact <?php the_title(); ?></a>
 				</div>
 
-				<div class="screenshots">
+				<div class="screenshots gallery">
 					<h6>Images</h6>
 					<br>
 					<?php foreach ( $screenshots as $screenshot ) : ?>

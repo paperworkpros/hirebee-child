@@ -1,0 +1,36 @@
+
+ul.pagination {
+	display: flex;
+	justify-content: center;
+	height: auto;
+}
+
+ul.pagination li {
+	display: block !important;
+	height: auto;
+	width: 2em;
+	margin: 0 !important;
+	border-top: var(--border);
+	border-bottom: var(--border);
+	border-right: var(--border);
+	background: #fff;
+}
+
+ul.pagination li:first-of-type {
+	border-left: var(--border);
+}
+
+ul.pagination li.current a,
+ul.pagination li.current a:hover,
+ul.pagination li.current a:focus {
+	background: var(--color-border);
+	color: var(--color-body);
+	font-weight: 400;
+}
+
+ul.pagination a,
+.dots {
+	display: block;
+	padding: .5em !important;
+	color: var(--color-body);
+}

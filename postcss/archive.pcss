@@ -1,0 +1,288 @@
+
+.article-header:before,
+.single-project-meta-group:before {
+	content: '';
+	display: block;
+	border-top: var(--border);
+	margin: 1.5em -1.5em;
+	width: calc(100% + 3em);
+	height: 1px;
+}
+
+.home .article-header:before,
+.archive .article-header:before {
+	display: none;
+}
+
+.article-header .row {
+	width: 100%;
+}
+
+.article-title,
+.single-project-meta-buttons {
+	width: 100%;
+}
+
+.article-heading {
+	margin-bottom: 0;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+.project-dropdown {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	position: relative;
+	flex: none;
+}
+
+.dropdown {
+	padding: 1em;
+	width: 100%;
+	border: var(--border);
+	background: transparent;
+	color: var(--color-body);
+	position: relative;
+	font-weight: normal;
+}
+
+.dropdown:hover,
+.dropdown:focus {
+	background: transparent;
+	color: var(--color-body);
+}
+
+.dropdown:before {
+	border-top-color: var(--color-body);
+	border-width: .3em;
+	top: calc(50% + .15em);
+	right: 1em;
+}
+
+.f-dropdown {
+	top: 100%;
+	display: flex;
+	list-style-type: none;
+	column-gap: 1em;
+	width: 100%;
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border: var(--border);
+}
+
+.dropdown.small:before {
+	border-color: var(--color-body) transparent transparent transparent;
+	border-width: 0.4em;
+}
+
+.project-section,
+.user-profile > .row:not(.user-content-tabs),
+.archive .project,
+.home .project {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 1.5em;
+	background: #fff;
+	border: var(--border);
+	border-top: 0;
+}
+
+.user-header-meta .columns {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.project-title-row h2 {
+	font-size: 20px;
+}
+
+.all-projects,
+.all-devs {
+	display: flex;
+	justify-content: center;
+	margin: 2em 0 0;
+	width: 100%;
+}
+
+.all-projects + .fl-pagination,
+.all-devs + .fl-pagination {
+	display: none;
+}
+
+.archive-project-title,
+.freelancer-header {
+	font-size: 1em;
+	font-weight: 500;
+}
+
+#main {
+	flex: 100%;
+}
+
+.archive #main {
+	order: 2;
+}
+
+#sidebar {
+	display: none;
+}
+
+.archive #sidebar {
+	display: block;
+	flex: 100%;
+}
+
+#sidebar {
+	background: #fff;
+	padding: 2em;
+	border: var(--border);
+	border-top: 0;
+	box-shadow: var(--shadow);
+}
+
+#sidebar .section-head {
+	display: none;
+}
+
+.title,
+.content {
+	border-top: 0 !important;
+	border-color: var(--color-border) !important;
+}
+
+.title a {
+	font-size: x-large;
+	color: var(--color-dark);
+}
+
+.content {
+	padding: 0 !important;
+}
+
+.no-results {
+	margin: 1em 0;
+	font-size: 1em;
+}
+
+.entry-content .article-title,
+.entry-content .article-header:before {
+	display: none;
+}
+
+.user-archive .content-area {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.user-archive #main {
+	order: 2;
+}
+
+.user-archive #sidebar {
+	padding: 1.5em;
+	display: block;
+	background: #fff;
+	width: calc(100% - 2em);
+	box-shadow: var(--shadow);
+	margin-bottom: 1.5em;
+	border-left: 1px solid var(--color-shadow);
+	border-right: 1px solid var(--color-shadow);
+	border-bottom: 1px solid var(--color-shadow);
+}
+
+#sidebar form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 0;
+}
+
+.user-archive .section-head {
+	display: none;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+#refine-skills,
+#refine-location {
+	width: 50%;
+}
+
+#refine-skills ul {
+	display: flex;
+}
+
+.parent {
+	display: flex;
+}
+
+.parent label,
+#sidebar label {
+	margin: 0 1em 0 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.parent label input,
+.selectit input[type=checkbox] {
+	width: auto;
+	margin: 0 .5em 0 0;
+}
+
+#sidebar .expand {
+	width: auto;
+	padding: 0.5em 1em;
+}
+
+.top-widgets {
+	display: none;
+}
+
+.media-manager {
+	display: flex;
+	align-items: center;
+}
+
+.hrb-gravatar a,
+.media-attachment {
+	display: block;
+	height: 3em;
+	width: 3em;
+	border-radius: 5em;
+	border: var(--border);
+	overflow: hidden;
+}
+
+.media-attachment {
+	margin-right: 2em;
+	height: 5em;
+	width: 5em;
+}
+
+.hrb-gravatar img,
+.media-attachment img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.page-id-15 #primary,
+.page-id-17 #primary,
+.page-id-22 #primary {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.fr-img {
+	flex: calc(20% - 1em);
+}
+
+.fr-img + div {
+	flex: calc(80% - 1em);
+}

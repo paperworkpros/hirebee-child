@@ -44,7 +44,7 @@
 				</li>
 
 				<li class="hrb-register">
-					<a href="<?php echo get_the_hrb_site_registration_url(); ?>">Sign Up</a>
+					<a href="/sign-up" class="button button-small">Sign Up</a>
 				</li>
 
 			<?php else: ?>
@@ -56,24 +56,56 @@
 				</li>
 
 				<li class="hrb-user menu-item-has-children">
-					<a title="Dashboard" href="/dashboard"><?php echo $current_user->user_firstname . ' ' . $current_user->user_lastname[0]; ?></a>
+					<a title="Dashboard" href="/dashboard"><?php echo ncd_get_user_display_name( $current_user ); ?></a>
 
 					<ul class="sub-menu">
-						<li class="hrb-dashboard">
-							<a href="/dashboard">Dashboard</a>
-						</li>
 
-						<li class="hrb-profile">
-							<a href="<?php echo appthemes_get_edit_profile_url(); ?>">Edit Profile</a>
-						</li>
+						<?php
 
-						<li class="hrb-billing">
-							<a href="<?php echo hrb_get_dashboard_url_for() . '/payment/'; ?>">Billing</a>
-						</li>
+						$menu_items = [
+							[
+								'href' => '/dashboard',
+								'text' => 'Dashboard',
+								'role' => 'all',
+							],
+							[
+								'href' => '/dashboard/profile',
+								'text' => 'Edit Profile',
+								'role' => 'all',
+							],
+							[
+								'href' => '/post-a-project',
+								'text' => 'Post a Project',
+								'role' => 'employer',
+							],
+							[
+								'href' => '/dashboard/projects',
+								'text' => 'My Projects',
+								'role' => 'employer',
+							],
+							[
+								'href' => '/dashboard/payments',
+								'text' => 'Billing',
+								'role' => 'freelancer',
+							],
+							[
+								'href' => wp_logout_url(),
+								'text' => 'Log out',
+								'role' => 'all',
+							],
+						];
 
-						<li class="hrb-logout">
-							<a href="<?php echo wp_logout_url(); ?>">Logout</a>
-						</li>
+
+						foreach ( $menu_items as $menu_item ) :
+							if ( 'all' === $menu_item['role'] || in_array( 'administrator', $current_user->roles ) || in_array( $menu_item['role'], $current_user->roles ) ) : ?>
+								<li class="hrb-logout">
+									<a href="<?php echo $menu_item['href']; ?>">
+										<?php echo $menu_item['text']; ?>
+									</a>
+								</li>
+							<?php endif;
+						endforeach; ?>
+
 
 					</ul>
 

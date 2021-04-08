@@ -1,5 +1,7 @@
 <?php
 
+return;
+
 define( 'RW_MX_TC_TD', 'agreed' );
 $locale = apply_filters( 'plugin_locale', get_locale(), RW_MX_TC_TD );
 $base   = basename( dirname( __FILE__ ) );

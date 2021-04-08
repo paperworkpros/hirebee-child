@@ -9,7 +9,7 @@ add_filter( 'render_block', function ( $block_content, $block ) {
 				' is-style-outline',
 			],
 			[
-				'wp-block-button__link button' . ( string_contains( 'outline', $block_content ) ? ' button-outline' : '' ),
+				'wp-block-button__link button' . ( ncd_string_contains( 'outline', $block_content ) ? ' button-outline' : '' ),
 				'',
 			],
 			$block_content

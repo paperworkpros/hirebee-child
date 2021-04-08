@@ -1,0 +1,30 @@
+
+.user-portfolio {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.portfolio-item {
+	flex-basis: calc(300px - 1em);
+	height: calc(300px - 1em);
+	margin: 0 1em 1em 0;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	padding: 0.5em;
+}
+
+.portfolio-image {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	border-radius: var(--border-radius);
+}
+
+
+.acf-fields > .acf-field.acf-field-gallery {
+	padding: 2em 0;
+}
+
+.acf-gallery-add {
+	font-size: smaller;
+}

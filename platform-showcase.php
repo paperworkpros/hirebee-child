@@ -2,12 +2,6 @@
 /**
  * Template Name: Platform Showcase
  */
-wp_enqueue_style(
-	'platform-showcase',
-	get_stylesheet_directory_uri() . '/css/platform-showcase.css',
-	[],
-	filemtime( __DIR__ . '/css/platform-showcase.css' )
-);
 
 get_header();
 ?>
