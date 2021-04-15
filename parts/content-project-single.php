@@ -1,5 +1,5 @@
 <?php
-global $post;
+global $post, $current_user;
 ?>
 <article id="project-<?php the_ID(); ?>" <?php post_class( [ 'single-project' ] ); ?> role="article">
 	<div class="project-section">
@@ -12,7 +12,7 @@ global $post;
 				'project_category'
 			);
 			$details    = [
-				'Bids'           => get_comments_number(),
+				'Bids'           => appthemes_get_post_total_bids( $post->ID ),
 				'Budget'         => '$' . $post->_hrb_budget_price,
 				'Days Remaining' => get_the_hrb_project_remain_days(),
 				'Category'       => $categories[0]->name,
@@ -28,10 +28,10 @@ global $post;
 			<p>Posted on <?php echo get_the_date(); ?></p>
 			<strong><?php echo mb_convert_case( get_post_status(), MB_CASE_TITLE ); ?></strong>
 			<?php
-			echo html( 'a', array(
+			echo html( 'a', [
 				'class' => 'button secondary expand',
-				'href' => esc_url( get_the_hrb_apply_to_url( $post->ID ) ),
-			), 'Bid Project' );
+				'href'  => esc_url( get_the_hrb_apply_to_url( $post->ID ) ),
+			], 'Bid Project' );
 			?>
 		</div>
 	</div>
@@ -56,8 +56,7 @@ global $post;
 		</ul>
 	</div>
 
-	<div class="project-section">
-		<h2>Bids</h2>
+	<div class="project-section bids">
 		<?php appthemes_load_template( 'single-project-section-proposals.php', [ 'proposals' => $proposals ] ); ?>
 	</div>
 
