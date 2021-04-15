@@ -72,3 +72,20 @@ add_action( 'gform_after_submission_7', function ( $entry, $form ) {
 
 	wp_insert_comment( $data );
 }, 10, 2 );
+
+add_filter( 'gform_replace_merge_tags', function ( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
+
+	global $wp;
+
+	if ( ! $wp ) {
+		return $text;
+	}
+
+	$project_id  = (int) basename( $wp->request );
+	$budget      = get_post_meta( $project_id, '_hrb_budget_price', true );
+	$budget_type = ucwords( get_post_meta( $project_id, '_hrb_budget_type', true ) );
+	$text        = str_replace( '{budget}', $budget, $text );
+	$text        = str_replace( '{budget_type}', $budget_type, $text );
+
+	return $text;
+}, 10, 7 );

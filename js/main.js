@@ -165,3 +165,33 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}
 	} );
 } );
+
+// Create dropdown out of checkbox list.
+document.addEventListener( 'DOMContentLoaded', function() {
+	const lists = document.getElementsByClassName( 'parent' );
+
+	if ( ! lists ) {
+		return;
+	}
+
+	[ ...lists ].forEach( /** @param {HTMLElement} list */ function( list ) {
+		list.style.position = 'absolute';
+		list.style.display  = 'none';
+		list.style.flexWrap = 'wrap';
+
+		list.previousElementSibling.addEventListener( 'click', function() {
+			if ( this.nextElementSibling.style.display === 'flex' ) {
+				this.nextElementSibling.style.display = 'none';
+			} else {
+				this.nextElementSibling.style.display = 'flex';
+			}
+		} );
+
+		[ ...list.children ].forEach( /** @param {HTMLElement} listItem */ function( listItem ) {
+			listItem.style.width        = '100%';
+			listItem.style.marginBottom = '0.5em';
+		} );
+
+	} );
+
+} );

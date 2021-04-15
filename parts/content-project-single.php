@@ -1,7 +1,7 @@
 <?php
 global $post, $current_user;
 ?>
-<article id="project-<?php the_ID(); ?>" <?php post_class( [ 'single-project' ] ); ?> role="article">
+<article id="project-<?php echo $post->ID; ?>" <?php post_class( [ 'single-project' ] ); ?> role="article">
 	<div class="project-section">
 		<div class="single-project-details">
 			<h1><?php the_title(); ?></h1>
@@ -13,7 +13,7 @@ global $post, $current_user;
 			);
 			$details    = [
 				'Bids'           => appthemes_get_post_total_bids( $post->ID ),
-				'Budget'         => '$' . $post->_hrb_budget_price,
+				'Budget'         => $post->_hrb_budget_price,
 				'Days Remaining' => get_the_hrb_project_remain_days(),
 				'Category'       => $categories[0]->name,
 			];
