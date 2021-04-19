@@ -21,7 +21,6 @@
 			<p class="profile-title"><?php echo get_user_meta( $user->ID, 'profile_title', true ); ?></p>
 
 			<div class="user-meta">
-				<div><?php the_hrb_user_rate( $user ); ?></div>
 				<div>
 					<?php echo get_user_meta( $user->ID, 'experience', true ); ?> years experience
 				</div>
