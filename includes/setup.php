@@ -57,14 +57,15 @@ add_action( 'init', function () {
 
 	// Replace strings.
 	$replacements = [
-		'FREELANCER'      => 'DEVELOPER',
-		'Freelancer'      => 'Developer',
-		'freelancer'      => 'developer',
-		'Top Freelancers' => 'Top No-Code Developers',
-		'Find Work'       => 'Available Projects',
-		'Proposal'        => 'Bid',
-		'proposal'        => 'bid',
-		' :: '              => ': ',
+		'FREELANCER'                => 'DEVELOPER',
+		'Freelancer'                => 'Developer',
+		'freelancer'                => 'developer',
+		'Top Freelancers'           => 'Top No-Code Developers',
+		'Find Work'                 => 'Available Projects',
+		'Proposal'                  => 'Bid',
+		'proposal'                  => 'bid',
+		' :: '                      => ': ',
+		'Email shared in projects:' => ncd_get_icon('envelope'),
 	];
 
 	foreach ( $replacements as $original => $replacement ) {
