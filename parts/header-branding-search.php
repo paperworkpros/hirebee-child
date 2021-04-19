@@ -74,6 +74,11 @@
 								'role' => 'all',
 							],
 							[
+								'href' => '/dashboard/portfolio',
+								'text' => 'Edit Portfolio',
+								'role' => 'freelancer',
+							],
+							[
 								'href' => '/post-a-project',
 								'text' => 'Post a Project',
 								'role' => 'employer',
