@@ -114,6 +114,7 @@ if ( $account_id ) {
 		'stripe_user[last_name]'     => $current_user->user_lastname,
 		'stripe_user[country]'       => 'US',
 		'stripe_user[business_type]' => 'individual',
+		'stripe_user[phone_number]'  => get_user_meta( $current_user->ID, 'phone', true ),
 	];
 
 	foreach ( $query_vars as $key => $value ) {
