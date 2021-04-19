@@ -12,22 +12,30 @@
 			<div>
 				<h2 class="user-name">
 					<a href="<?php echo esc_url( $user->profile_url ) ?>" title="<?php echo esc_attr( $user->display_name ); ?>">
-					<?php echo ncd_get_user_display_name( $user ); ?>
+						<?php echo ncd_get_user_display_name( $user ); ?>
 					</a>
 				</h2>
-				<span class="location"><?php echo file_get_contents( dirname( __DIR__ ) . '/svg/map-marker.svg' ); ?><?php echo get_user_meta( $user->ID, 'city', true ) . ', '; ?><?php the_hrb_user_location( $user ); ?></span>
+				<small>(<?php echo get_user_meta( $user->ID, 'entity_type', true ); ?>)</small>
 			</div>
 
 			<p class="profile-title"><?php echo get_user_meta( $user->ID, 'profile_title', true ); ?></p>
 
 			<div class="user-meta">
 				<div>
+					<?php ncd_icon( 'calendar' ); ?>
 					<?php echo get_user_meta( $user->ID, 'experience', true ); ?> years experience
 				</div>
 
 				<div>
+					<?php ncd_icon( 'folder-open' ); ?>
 					<?php _e( 'Projects Completed:', APP_TD ); ?>
 					<?php the_hrb_user_completed_projects_count( $user ); ?>
+				</div>
+
+				<div>
+					<?php ncd_icon( 'map-marker-alt' ); ?>
+					<?php echo get_user_meta( $user->ID, 'city', true ) . ', '; ?>
+					<?php the_hrb_user_location( $user ); ?>
 				</div>
 			</div>
 

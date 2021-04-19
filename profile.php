@@ -14,19 +14,27 @@
 
 				<div>
 					<h2 class="user-name"><?php echo ncd_get_user_display_name( $profile_author ); ?></h2>
-					<span class="location"><?php echo file_get_contents( __DIR__ . '/svg/map-marker.svg' ); ?><?php echo get_user_meta( $profile_author->ID, 'city', true ) . ', '; ?><?php the_hrb_user_location( $profile_author->ID ); ?></span>
+					<small>(<?php echo get_user_meta( $profile_author->ID, 'entity_type', true ); ?>)</small>
 				</div>
 
 				<p class="profile-title"><?php echo get_user_meta( $profile_author->ID, 'profile_title', true ); ?></p>
 
 				<div class="user-meta">
 					<div>
+						<?php ncd_icon( 'calendar' ); ?>
 						<?php echo get_user_meta( $profile_author->ID, 'experience', true ); ?> years experience
 					</div>
 
 					<div>
+						<?php ncd_icon( 'folder-open' ); ?>
 						<?php _e( 'Projects Completed:', APP_TD ); ?>
 						<?php the_hrb_user_completed_projects_count( $profile_author ); ?>
+					</div>
+
+					<div>
+						<?php ncd_icon( 'map-marker-alt' ); ?>
+						<?php echo get_user_meta( $profile_author->ID, 'city', true ) . ', '; ?>
+						<?php the_hrb_user_location( $profile_author->ID ); ?>
 					</div>
 				</div>
 
