@@ -82,9 +82,52 @@ add_filter( 'gform_replace_merge_tags', function ( $text ) {
 
 	$project_id  = (int) basename( $wp->request );
 	$budget      = get_post_meta( $project_id, '_hrb_budget_price', true );
-	$budget_type = ucwords( get_post_meta( $project_id, '_hrb_budget_type', true ) );
+	$budget_type = get_post_meta( $project_id, '_hrb_budget_type', true );
 	$text        = str_replace( '{budget}', $budget, $text );
-	$text        = str_replace( '{budget_type}', $budget_type, $text );
+
+	if ( 'fixed' === $budget_type ) {
+		$text = str_replace( '{budget_type}', 'Firm Fixed Price', $text );
+	}
+
+	if ( 'hourly' === $budget_type ) {
+		$text = str_replace( '{budget_type}', 'Estimate (pay per hour)', $text );
+	}
 
 	return $text;
 }, 10, 7 );
+
+add_filter( 'gform_pre_render_7', 'ncd_set_default_proposal_type' );
+add_filter( 'gform_pre_validation_7', 'ncd_set_default_proposal_type' );
+add_filter( 'gform_pre_submission_filter_7', 'ncd_set_default_proposal_type' );
+add_filter( 'gform_admin_pre_render_7', 'ncd_set_default_proposal_type' );
+/**
+ * Set default proposal type for application form.
+ *
+ * @since 1.0.0
+ *
+ * @param $form
+ *
+ * @return mixed
+ */
+function ncd_set_default_proposal_type( $form ) {
+	foreach ( $form['fields'] as &$field ) {
+		if ( 'radio' === $field->type && isset( $field['choices'] ) ) {
+			global $wp;
+			$project_id  = (int) basename( $wp->request );
+			$budget_type = get_post_meta( $project_id, '_hrb_budget_type', true );
+			$choices     = [];
+
+			foreach ( $field->choices as $choice ) {
+				if ( $budget_type === $choice['value'] ) {
+					$choice['isSelected'] = true;
+				}
+
+				$choices[] = $choice;
+			}
+
+			$field->choices = $choices;
+		}
+	}
+
+	return $form;
+}
