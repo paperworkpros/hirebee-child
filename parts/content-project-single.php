@@ -12,15 +12,15 @@ global $post, $current_user;
 				'project_category'
 			);
 			$details    = [
-				'Bids'           => appthemes_get_post_total_bids( $post->ID ),
-				'Budget'         => $post->_hrb_budget_price,
-				'Days Remaining' => get_the_hrb_project_remain_days(),
-				'Category'       => $categories[0]->name,
+				ncd_get_icon( 'comments-dollar' ) . ' Bids'    => appthemes_get_post_total_bids( $post->ID ),
+				ncd_get_icon( 'dollar-sign' ) . ' Budget'      => $post->_hrb_budget_price,
+				ncd_get_icon( 'calendar' ) . ' Days Remaining' => (int) get_the_hrb_project_remain_days(),
+				ncd_get_icon( 'folder-open' ) . ' Category'    => $categories[0]->name,
 			];
 			?>
 			<ul class="project-list">
 				<?php foreach ( $details as $detail => $value ) : ?>
-					<li><?php echo $detail; ?> <b><?php echo $value; ?></b></li>
+					<li><span><?php echo $detail; ?></span><b><?php echo $value; ?></b></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -51,8 +51,8 @@ global $post, $current_user;
 		<hr>
 		<h2>Employer Information</h2>
 		<ul class="project-list">
-			<li><?php the_author(); ?></li>
-			<li><i class="icon i-project-location"></i> <?php the_hrb_project_location(); ?></li>
+			<li><?php ncd_icon('user-alt'); ?><?php the_author(); ?></li>
+			<li><?php ncd_icon('map-marker-alt'); ?><?php the_hrb_project_location(); ?></li>
 		</ul>
 	</div>
 

@@ -118,3 +118,15 @@ function ncd_has_gravity_form() {
 
 	return false;
 }
+
+function ncd_get_icon( $name ) {
+	return str_replace(
+		'<svg ',
+		'<svg class="ncd-icon" ',
+		file_get_contents( dirname( __DIR__ ) . "/svg/$name.svg" )
+	);
+}
+
+function ncd_icon( $name ) {
+	echo ncd_get_icon( $name );
+}
