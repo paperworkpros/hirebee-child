@@ -73,8 +73,7 @@ add_action( 'gform_after_submission_7', function ( $entry, $form ) {
 	wp_insert_comment( $data );
 }, 10, 2 );
 
-add_filter( 'gform_replace_merge_tags', function ( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
-
+add_filter( 'gform_replace_merge_tags', function ( $text ) {
 	global $wp;
 
 	if ( ! $wp ) {

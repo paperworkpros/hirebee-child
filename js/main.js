@@ -179,6 +179,12 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		list.style.display  = 'none';
 		list.style.flexWrap = 'wrap';
 
+		document.addEventListener( 'mouseup', function( event ) {
+			if ( ! list.parentElement.contains( event.target ) ) {
+				list.style.display = 'none';
+			}
+		} );
+
 		list.previousElementSibling.addEventListener( 'click', function() {
 			if ( this.nextElementSibling.style.display === 'flex' ) {
 				this.nextElementSibling.style.display = 'none';
@@ -191,7 +197,5 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			listItem.style.width        = '100%';
 			listItem.style.marginBottom = '0.5em';
 		} );
-
 	} );
-
 } );
