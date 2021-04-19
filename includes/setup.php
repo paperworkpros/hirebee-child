@@ -62,6 +62,9 @@ add_action( 'init', function () {
 		'freelancer'      => 'developer',
 		'Top Freelancers' => 'Top No-Code Developers',
 		'Find Work'       => 'Available Projects',
+		'Proposal'        => 'Bid',
+		'proposal'        => 'bid',
+		' :: '              => ': ',
 	];
 
 	foreach ( $replacements as $original => $replacement ) {
