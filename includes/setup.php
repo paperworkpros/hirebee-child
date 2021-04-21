@@ -77,5 +77,4 @@ add_action( 'init', function () {
 			return $string;
 		}, 10, 3 );
 	}
-
 }, 0 );
